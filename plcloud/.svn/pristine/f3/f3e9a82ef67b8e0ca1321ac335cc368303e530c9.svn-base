@@ -1,0 +1,174 @@
+package com.routon.pmax.admin.compare.action;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.UUID;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import javax.annotation.Resource;
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.routon.idr.compare.RecvMessageTask;
+import com.routon.idr.compare.CommonCompare;
+import com.routon.idr.compare.INetInterfaceCallBack;
+import com.routon.idr.idrconst.COMP_RESULT;
+import com.routon.idr.idrconst.CompareType;
+import com.routon.idr.idrconst.FACE_IMAGE2_DATA;
+import com.routon.idr.idrconst.FACE_IMAGE_INFO;
+import com.routon.idr.idrconst.RabbitMQNetBean;
+import com.routon.idr.rabbitmq.FACE_COMPARE_IMG_JOB_RESULT;
+import com.routon.idr.tools.ConvertBGR;
+import com.routon.pmax.admin.compare.bean.JsonResult;
+import com.routon.pmax.admin.compare.bean.ResultStatus;
+
+/**
+ * 人脸1:1比对控制器
+ * @author wangxiwei93
+ *
+ */
+@Controller
+public class CompareController{
+	//private Logger logger = LoggerFactory.getLogger(GroupController.class);
+	private final String RMPATH = "/compare/";
+	private StringBuffer twoImagePath = null;
+	
+	// 接收线程池
+	private static ExecutorService exService =Executors.newFixedThreadPool(5);
+	
+/*	@Resource(name = "compareBean")
+	private CommonCompare commonCompare;*/
+	
+/*	@Resource(name = "ReceiveBean")
+	private RecvMessageTask recvMessageTask;*/
+
+	@RequestMapping(value = RMPATH + "show")
+	public String compare1V1(){
+		return "compare/compareResult";
+	}
+	
+	@RequestMapping(value = "/compare/scores", method = RequestMethod.POST)
+	public @ResponseBody int getScores(HttpServletRequest request,@RequestParam(value = "image1", required = false) MultipartFile file){
+		System.out.println("开始");
+		String filePath = request.getSession().getServletContext().getRealPath("/") + "upload/";
+		String filename =  file.getOriginalFilename();
+		System.out.println(filePath);
+		try {
+			File targetFile = new File(filePath + filename);
+	        if(twoImagePath == null){
+	        	twoImagePath = new StringBuffer();
+	        	System.out.println(twoImagePath.toString());
+	        }
+	        twoImagePath.append(filePath+filename).append(";");
+	        if(!targetFile.exists()){  
+	            targetFile.mkdirs();
+	            file.transferTo(targetFile);
+	        }
+		} catch (IllegalStateException e) {
+			twoImagePath = null;
+			e.printStackTrace();
+		} catch (IOException e) {
+			twoImagePath = null;
+			e.printStackTrace();
+		} catch(Exception e){
+			twoImagePath = null;
+			e.printStackTrace();
+		}
+		return 2;
+	}
+	
+	@RequestMapping(value = "/compare/TwoImagePath")
+	public @ResponseBody 
+	JsonResult getTwoImagePath(HttpServletRequest request, String threshold) throws Exception, IOException{
+		double scores = 0;
+		JsonResult result = null;
+		System.out.println(twoImagePath.toString());
+		String[] args = twoImagePath.toString().split(";");
+		System.out.println(args.length);
+		try {
+			//C:\\Users\\wangxiwei93\\Desktop\\788.png
+			BufferedImage i1= ImageIO.read(new FileInputStream(args[0]));
+			BufferedImage i2 = ImageIO.read(new FileInputStream(args[1]));
+			//int jobId = 4247;
+			/*String corrId = UUID.randomUUID().toString();
+			int jobId = Integer.parseInt(corrId);*/
+			int jobId = CommonCompare.generateQueueName();
+			CommonCompare commonCompare = new CommonCompare();
+			RecvMessageTask recvMessageTask = new RecvMessageTask();
+			String bindKey = "47276010";
+			bindKey = commonCompare.mQueueName1V1;
+			System.out.println("-----------begin-----------");
+			System.out.println("send Jobid:" + jobId);
+			System.out.println("bindkey for received:" + bindKey);
+			//RecvMessageTask me = new RecvMessageTask();
+			RabbitMQNetBean netBean = new RabbitMQNetBean();
+			netBean.setServ_ip("172.16.42.125");
+			netBean.setServ_port(5672);
+			netBean.setServ_username("admin");
+			netBean.setServ_password("admin");
+			commonCompare.Init(CompareType.net_1v1, netBean);
+			recvMessageTask.Init(CompareType.net_1v1, netBean);
+			FACE_IMAGE_INFO image1 = new FACE_IMAGE_INFO();
+			image1.height = i1.getHeight();
+			image1.width = i1.getWidth();
+			image1.data = ConvertBGR.getMatrixBGR(i1);
+			FACE_IMAGE_INFO image2 = new FACE_IMAGE_INFO();
+			image2.height = i2.getHeight();
+			image2.width = i2.getWidth();
+			image2.data = ConvertBGR.getMatrixBGR(i2);
+			FACE_IMAGE2_DATA face_image2_data = new FACE_IMAGE2_DATA();
+			face_image2_data.job_id = jobId;
+			face_image2_data.image_info_first = image1;
+			face_image2_data.image_info_second = image2;
+			recvMessageTask.setCallback(commonCompare);
+			//启动接收线程池
+			exService.execute(recvMessageTask);
+			/*System.out.println("-----------启动接收-----------");
+			FACE_COMPARE_IMG_JOB_RESULT bak = recvMessageTask.compareResult(bindKey);*/
+			//发送1:1比对
+			FACE_COMPARE_IMG_JOB_RESULT bak = commonCompare.Compare1v1FaceSyncProvider(face_image2_data);
+			//启动接收信息线程，这个方法不能放在这里，因为是启动线程，必须部署在后台服务中。不然会影响并发
+			/*FACE_COMPARE_IMG_JOB_RESULT bak = recvMessageTask.compareResult(bindKey);*/
+			System.out.println("-----------end-----------");
+			scores = bak.score;
+			if(bak.comp_result == COMP_RESULT.fail_data_null){
+				result = new JsonResult(ResultStatus.FAIL_nodata_recevied, scores);
+				return result;
+			}
+			double thresholdCopy= Double.parseDouble(threshold);
+			if(scores >= thresholdCopy){
+				result = new JsonResult(ResultStatus.SUCCESS, scores);
+			}else{
+				result = new JsonResult(ResultStatus.FAIL, scores);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally{
+			twoImagePath = null;
+		}
+		return result;
+	}
+	
+	@RequestMapping(value = "/compare/getImageNum")
+	public @ResponseBody 
+	int compareImageNum(){
+		if(twoImagePath == null){
+			return 0;
+		}
+		String[] args = twoImagePath.toString().split(";");
+		if(args.length == 1 || args.length == 0){
+			return 0;
+		}
+		return 1;
+	}
+}

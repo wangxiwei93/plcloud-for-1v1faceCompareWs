@@ -1,0 +1,63 @@
+
+body { padding-top: 55px; }
+  	
+.panel>.table {
+	
+	border-bottom-style: solid;
+	border-bottom-width: 0px;
+	border-bottom-color:#ddd;
+}
+
+div.pagebannertotal {
+	border: 1px solid #999;
+	border-top-width: 0px;
+	background-color: #E7ECF3;
+	text-align: right;
+	height: 25px;
+	font-weight: bold;
+	display: none;
+}
+
+div.exportblock {
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	vertical-align: middle;
+	background-color: #DDE7F8;
+	border: 1px solid #BCC6CF;
+	display: none;
+}
+
+div.operateblock {
+	float: left;
+	width: 75%;
+	line-height: 25px;
+	margin: 0, 0, 0, 0;
+}
+
+div.operateblock input {
+	margin-left: 5px;
+	margin-top: 2px;
+}
+
+div.exportlinks {
+	line-height: 25px;
+	float: right;
+	margin: 0, 0, 0, 0;
+}
+
+div.pagenodate {
+	margin-left: auto;
+	margin-right: auto;
+	width: 20%;
+	height: 50px;
+	font-size: 14px;
+	font-weight: bold;
+	color: red;
+	text-align: center;
+}
+
+div.pagenodate span {
+	position: relative;
+	top: 20px;
+}

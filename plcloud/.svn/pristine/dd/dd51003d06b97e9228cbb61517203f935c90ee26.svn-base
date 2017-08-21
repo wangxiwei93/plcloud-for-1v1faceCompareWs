@@ -1,0 +1,62 @@
+package com.routon.pmax.admin.compare.bean;
+
+/**
+ * @Title: 系统公用组件
+ * @Description: 用户AJAX操作返回信息
+ * @author: weangxiwei
+
+ */
+
+public class JsonResult {
+	
+	
+	/**
+	 * @Description:默认构造函数
+	 * @param :status结果状态值
+	 * @return
+	 * @throws Exception
+	 */
+	public JsonResult(ResultStatus status){
+		this.status = status.getStatus();
+		this.text = status.getText();
+	}
+	
+	 
+	/**
+	 * @Description:默认构造函数
+	 * @param :status结果状态值
+	 * @param :text	使用自定义描述
+	 * @return
+	 * @throws Exception
+	 */
+	public JsonResult(ResultStatus status, double scores){
+		this.status = status.getStatus();
+		this.text = status.getText();
+		this.scores = scores;
+	}
+	/**
+	 * 状态码
+	 */
+	private int status;
+	
+	/**
+	 * 返回信息
+	 */
+	private String text;
+	
+	/**
+	 * 比对分数
+	 */
+	private double scores;
+	
+	public double getScores() {
+		return scores;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+	public String getText() {
+		return text;
+	}
+}

@@ -1,0 +1,2944 @@
+{
+    "rows": [
+        {
+            "id": 1,
+            "name": "自动加工完成后压板抬起",
+            "nameEn": "Lift clamp after automatic processing",
+            "tip1OnEn": "ON: Lift clamp after automatic processing.",
+            "tip1OnUnit": "ON: 加工完成后压板自动抬起",
+            "tip2OffEn": "OFF: Don't lift clamp after automatic processing.",
+            "tip2OffRang": "OFF: 加工完成后压板持续压下，只能通过踏板操作",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 0,
+            "topName": "自动加工辅助",
+            "topNameEn": "Automatic",
+            "type": 0,
+            "value": "OFF",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON"
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF",
+                            "selected": true
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "name": "电机自动锁紧",
+            "nameEn": "Autorun at uniform speed",
+            "tip1OnEn": "ON: The speed of feed is uniform.",
+            "tip1OnUnit": "ON: 自动加工完成后电机锁紧",
+            "tip2OffEn": "OFF: The speed of principal axis is uniform.",
+            "tip2OffRang": "OFF: 自动加工完成后电机松开",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 0,
+            "topName": "自动加工辅助",
+            "topNameEn": "Automatic",
+            "type": 0,
+            "value": "OFF",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON"
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF",
+                            "selected": true
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "name": "自动加工完成后剪线",
+            "nameEn": "Trimming after automatic processing",
+            "tip1OnEn": "ON: Automatic trimming after processing.",
+            "tip1OnUnit": "ON: 加工完成后自动剪线",
+            "tip2OffEn": "OFF: Forbid trimming after processing.",
+            "tip2OffRang": "OFF: 加工完成后剪线禁止",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 0,
+            "topName": "自动加工辅助",
+            "topNameEn": "Automatic",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "name": "自动加工完成后回(次)原点",
+            "nameEn": "Return to (the second)home position after automatic processing",
+            "tip1OnEn": "ON: Return to (the second)home position after automatic processing.",
+            "tip1OnUnit": "ON: 加工完成后回原点（次原点）",
+            "tip2OffEn": "OFF: Return to home position at first, then go to the second home position after automatic processing.",
+            "tip2OffRang": "OFF: 加工完成后立即停在原位",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 0,
+            "topName": "自动加工辅助",
+            "topNameEn": "Automatic",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "name": "缝制范围限制有效",
+            "nameEn": "Sewing area limit",
+            "tip1OnEn": "ON: Limit for stitching range is available.",
+            "tip1OnUnit": "ON: 缝制范围有效（达到缝纫范围时停止缝纫并报警）",
+            "tip2OffEn": "OFF: Limit for stitching range is invalid.",
+            "tip2OffRang": "OFF: 缝制范围限制无效（达到缝纫范围后继续进行程序）",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 0,
+            "topName": "自动加工辅助",
+            "topNameEn": "Automatic",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "name": "模具装夹开关",
+            "nameEn": "Assistant orienation",
+            "tip1OnEn": "1st: No action.",
+            "tip1OnUnit": "1st: 自动加工联动动作关",
+            "tip2OffEn": "2nd: Mould clamped is ON.",
+            "tip2OffRang": "2nd: 自动加工模具夹紧有效",
+            "tip3Default": "3rd: 自动加工辅助定位有效",
+            "tip3En": "3rd: Assistant orientation is ON.",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 0,
+            "topName": "自动加工辅助",
+            "topNameEn": "Automatic",
+            "type": 1,
+            "value": "1ST",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "1st",
+                            "text": "1st",
+                            "selected": true
+                        },
+                        {
+                            "value": "2nd",
+                            "text": "2nd"
+                        },
+                        {
+                            "value": "3rd",
+                            "text": "3rd"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "name": "外部输入文件选择关闭",
+            "nameEn": "Output file choose close",
+            "tip1OnEn": "ON: Select the external file is invalid.",
+            "tip1OnUnit": "ON: 外部输入文件选择功能无效",
+            "tip2OffEn": "OFF: Select the external file is effective.",
+            "tip2OffRang": "OFF: 外部输入文件选择功能有效",
+            "tip3Default": "3rd: 自动加工辅助定位有效",
+            "tip3En": "3rd: Assistant orientation is ON.",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 0,
+            "topName": "自动加工辅助",
+            "topNameEn": "Automatic",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        },
+                        {
+                            "value": "3rd",
+                            "text": "3rd"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "name": "第一针启动速度",
+            "nameEn": "Speed of the first stitch",
+            "tip1OnEn": "",
+            "tip1OnUnit": "r/min",
+            "tip2OffEn": "",
+            "tip2OffRang": "( 100 ~ 600r/min )",
+            "tip3Default": "300",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 1,
+            "topName": "慢针启动",
+            "topNameEn": "Slow Start",
+            "type": 2,
+            "value": "300",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 12,
+            "name": "第二针启动速度",
+            "nameEn": "Speed of the second stitch",
+            "tip1OnEn": "",
+            "tip1OnUnit": "r/min",
+            "tip2OffEn": "",
+            "tip2OffRang": "( 500 ~ 1000r/min )",
+            "tip3Default": "600",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 1,
+            "topName": "慢针启动",
+            "topNameEn": "Slow Start",
+            "type": 2,
+            "value": "600",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 13,
+            "name": "第三针启动速度",
+            "nameEn": "Speed of the third stitch",
+            "tip1OnEn": "",
+            "tip1OnUnit": "r/min",
+            "tip2OffEn": "",
+            "tip2OffRang": "( 800 ~ 1200r/min )",
+            "tip3Default": "1000",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 1,
+            "topName": "慢针启动",
+            "topNameEn": "Slow Start",
+            "type": 2,
+            "value": "1200",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 14,
+            "name": "第四针启动速度",
+            "nameEn": "Speed of the forth stitch",
+            "tip1OnEn": "",
+            "tip1OnUnit": "r/min",
+            "tip2OffEn": "",
+            "tip2OffRang": "( 1200 ~ 2000r/min )",
+            "tip3Default": "1600",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 1,
+            "topName": "慢针启动",
+            "topNameEn": "Slow Start",
+            "type": 2,
+            "value": "1800",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 15,
+            "name": "第五针启动速度",
+            "nameEn": "Speed of the fifth stitch",
+            "tip1OnEn": "",
+            "tip1OnUnit": "r/min",
+            "tip2OffEn": "",
+            "tip2OffRang": "( 2000 ~ 2800r/min )",
+            "tip3Default": "2000",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 1,
+            "topName": "慢针启动",
+            "topNameEn": "Slow Start",
+            "type": 2,
+            "value": "2500",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 16,
+            "name": "降速针数",
+            "nameEn": "Slow down the number of needles",
+            "tip1OnEn": "",
+            "tip1OnUnit": "",
+            "tip2OffEn": "",
+            "tip2OffRang": "  2 ~   5 ",
+            "tip3Default": "  0",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 1,
+            "topName": "慢针启动",
+            "topNameEn": "Slow Start",
+            "type": 2,
+            "value": "0",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 21,
+            "name": "速度上限设置",
+            "nameEn": "Upper limit of speed setting",
+            "tip1OnEn": "",
+            "tip1OnUnit": "r/min",
+            "tip2OffEn": "",
+            "tip2OffRang": "( 200~3000mm/min )",
+            "tip3Default": "2500",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 2,
+            "topName": "速度参数",
+            "topNameEn": "Speed",
+            "type": 2,
+            "value": "2700",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 22,
+            "name": "空移速度设置",
+            "nameEn": "Non-stitching feed speed",
+            "tip1OnEn": "",
+            "tip1OnUnit": "mm/min",
+            "tip2OffEn": "",
+            "tip2OffRang": "( 200~12000mm/min )",
+            "tip3Default": "9500",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 2,
+            "topName": "速度参数",
+            "topNameEn": "Speed",
+            "type": 2,
+            "value": "12000",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 23,
+            "name": "关机时保存当前速度设定值",
+            "nameEn": "Save current speed setting before power off",
+            "tip1OnEn": "ON: Save current speed setting before power off.",
+            "tip1OnUnit": "ON: 关机时保存当前速度设定值",
+            "tip2OffEn": "OFF: Don't save current speed setting before power off.",
+            "tip2OffRang": "OFF: 关机时不保存当前速度设定值，再开机时默认设置值为1000r/min",
+            "tip3Default": "9500",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 2,
+            "topName": "速度参数",
+            "topNameEn": "Speed",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "name": "寸动速度设置",
+            "nameEn": "Set of jog speed",
+            "tip1OnEn": "",
+            "tip1OnUnit": "mm/min",
+            "tip2OffEn": "",
+            "tip2OffRang": "( 200~10000mm/min )",
+            "tip3Default": "5000",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 2,
+            "topName": "速度参数",
+            "topNameEn": "Speed",
+            "type": 2,
+            "value": "3000",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 25,
+            "name": "打版速度1",
+            "nameEn": "Cursor input low speed",
+            "tip1OnEn": "",
+            "tip1OnUnit": "mm/min",
+            "tip2OffEn": "",
+            "tip2OffRang": "  0 ~ 20000 mm/min",
+            "tip3Default": "800",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 2,
+            "topName": "速度参数",
+            "topNameEn": "Speed",
+            "type": 2,
+            "value": "600",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 26,
+            "name": "打版速度2",
+            "nameEn": "Cursor input middle speed",
+            "tip1OnEn": "",
+            "tip1OnUnit": "mm/min",
+            "tip2OffEn": "",
+            "tip2OffRang": "  0 ~ 20000 mm/min",
+            "tip3Default": "1600",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 2,
+            "topName": "速度参数",
+            "topNameEn": "Speed",
+            "type": 2,
+            "value": "1200",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 27,
+            "name": "打版速度3",
+            "nameEn": "Cursor input high speed",
+            "tip1OnEn": "",
+            "tip1OnUnit": "mm/min",
+            "tip2OffEn": "",
+            "tip2OffRang": "  0 ~ 20000 mm/min",
+            "tip3Default": "2600",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 2,
+            "topName": "速度参数",
+            "topNameEn": "Speed",
+            "type": 2,
+            "value": "2400",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 28,
+            "name": "平滑送料设定",
+            "nameEn": "Smooth feed setting",
+            "tip1OnEn": "1st: Clearance feed.",
+            "tip1OnUnit": "1st: 正常送料",
+            "tip2OffEn": "2nd: Auto switch(clearance or smooth).",
+            "tip2OffRang": "2nd: 自动切换",
+            "tip3Default": "3rd: 强制平滑送料",
+            "tip3En": "3rd: Smooth feed.",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 2,
+            "topName": "速度参数",
+            "topNameEn": "Speed",
+            "type": 1,
+            "value": "3RD",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "1st",
+                            "text": "1st"
+                        },
+                        {
+                            "value": "2nd",
+                            "text": "2nd"
+                        },
+                        {
+                            "value": "3rd",
+                            "text": "3rd",
+                            "selected": true
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "name": "跳缝速度",
+            "nameEn": "Bat speed",
+            "tip1OnEn": "",
+            "tip1OnUnit": "r/min",
+            "tip2OffEn": "",
+            "tip2OffRang": "  0 ~ 2000 r/min",
+            "tip3Default": "  0",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 2,
+            "topName": "速度参数",
+            "topNameEn": "Speed",
+            "type": 2,
+            "value": "0",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 31,
+            "name": "压板抬起时禁止缝纫",
+            "nameEn": "Forbid sewing when clamp is lifting",
+            "tip1OnEn": "ON: Forbid sewing when clamp is lifting.",
+            "tip1OnUnit": "ON: 压板抬起时禁止缝纫",
+            "tip2OffEn": "OFF: Permit sewing when clamp is lifting.",
+            "tip2OffRang": "OFF: 压板抬起时允许缝纫",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 3,
+            "topName": "压框参数",
+            "topNameEn": "Clamp",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "name": "脚踏板操作顺序",
+            "nameEn": "The order of treadle's operation",
+            "tip1OnEn": "ON: The No.1 treadle controls startup, and the No.2 controls clamp.",
+            "tip1OnUnit": "ON: 踏板1控制启动，踏板2控制压框",
+            "tip2OffEn": "OFF: The No.1 treadle operates orderly, and the No.2 operates in reverse order.",
+            "tip2OffRang": "OFF: 踏板1顺序操作，踏板2逆序操作",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 3,
+            "topName": "压框参数",
+            "topNameEn": "Clamp",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "name": "压框提升高度",
+            "nameEn": "The height of foot's lift up",
+            "tip1OnEn": "",
+            "tip1OnUnit": "mm",
+            "tip2OffEn": "",
+            "tip2OffRang": "15.0 ~ 25.0 mm",
+            "tip3Default": "1.2",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 3,
+            "topName": "压框参数",
+            "topNameEn": "Clamp",
+            "type": 3,
+            "value": "25.0",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 34,
+            "name": "脚踏板操作方式",
+            "nameEn": "Pedal operation method with clamp",
+            "tip1OnEn": "1st: Reset suture counter when power on.",
+            "tip1OnUnit": "1st: 控制大压框抬起/放下",
+            "tip2OffEn": "2nd: Control the action of the big clamp and the 2nd-clamp by turns.",
+            "tip2OffRang": "2nd: 间隔控制大压框与辅助压脚抬起/放下",
+            "tip3Default": "3rd: 间隔控制左右分离压框",
+            "tip3En": "3rd: Separate control the action of the master clamp and the separate clamp(left/right).",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 3,
+            "topName": "压框参数",
+            "topNameEn": "Clamp",
+            "type": 1,
+            "value": "1ST",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "1st",
+                            "text": "1st",
+                            "selected": true
+                        },
+                        {
+                            "value": "2nd",
+                            "text": "2nd"
+                        },
+                        {
+                            "value": "3rd",
+                            "text": "3rd"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "name": "辅助压框抬起忽略针数",
+            "nameEn": "Invalid stitches of the 2nd-clamp sensor",
+            "tip1OnEn": "",
+            "tip1OnUnit": "",
+            "tip2OffEn": "",
+            "tip2OffRang": "  0 ~ 255 ",
+            "tip3Default": "  0",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 3,
+            "topName": "压框参数",
+            "topNameEn": "Clamp",
+            "type": 2,
+            "value": "0",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 36,
+            "name": "左右分离压板下降动作",
+            "nameEn": "The action of the separate clamp",
+            "tip1OnEn": "1st: The left part and the right part of clamp descend together.",
+            "tip1OnUnit": "1st: 左右压框同时下降",
+            "tip2OffEn": "2nd: The left part of clamp descends first, and the right part of clamp descends next.",
+            "tip2OffRang": "2nd: 压板按先左后右的顺序下降",
+            "tip3Default": "3rd: 压板按先右后左的顺序下降",
+            "tip3En": "3rd: The right part of clamp descends first, and the left part of clamp descends next.",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 3,
+            "topName": "压框参数",
+            "topNameEn": "Clamp",
+            "type": 1,
+            "value": "1ST",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "1st",
+                            "text": "1st",
+                            "selected": true
+                        },
+                        {
+                            "value": "2nd",
+                            "text": "2nd"
+                        },
+                        {
+                            "value": "3rd",
+                            "text": "3rd"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "name": "左右分离压板上升动作",
+            "nameEn": "The uplifted action of the separate clamp",
+            "tip1OnEn": "1st: Lift clamp after automatic processing.",
+            "tip1OnUnit": "1st: 加工完成后压板抬起",
+            "tip2OffEn": "2nd: Don't lift the left part of clamp after automatic processing.",
+            "tip2OffRang": "2nd: 加工完成后左压板持续压下",
+            "tip3Default": "3rd: 加工完成后右压板持续压下",
+            "tip3En": "3rd: Don't lift the right part of clamp after automatic processing.",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 3,
+            "topName": "压框参数",
+            "topNameEn": "Clamp",
+            "type": 1,
+            "value": "2ND",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "1st",
+                            "text": "1st"
+                        },
+                        {
+                            "value": "2nd",
+                            "text": "2nd",
+                            "selected": true
+                        },
+                        {
+                            "value": "3rd",
+                            "text": "3rd"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "name": "压框两段下降高度（非零有效）",
+            "nameEn": "The second hight of the clamp",
+            "tip1OnEn": "",
+            "tip1OnUnit": "mm",
+            "tip2OffEn": "",
+            "tip2OffRang": "0.0 ~ 25.5 mm",
+            "tip3Default": "0.0",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 3,
+            "topName": "压框参数",
+            "topNameEn": "Clamp",
+            "type": 3,
+            "value": "0.0",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 39,
+            "name": "压框下降动作（模拟量脚踏板有效）",
+            "nameEn": "Work clamp drop operation",
+            "tip1OnEn": "1st: Work clamp dropping by analog quantity.",
+            "tip1OnUnit": "1st: 模拟下降",
+            "tip2OffEn": "2nd: Work clamp dropping in one step.",
+            "tip2OffRang": "2nd: 一阶段下降",
+            "tip3Default": "3rd: 二阶段下降",
+            "tip3En": "3rd: Work clamp dropping in two steps.",
+            "tip4": "4th: 一阶段下降（有停止动作）",
+            "tip4En": "4th: Work clamp dropping in one step (with pause action).",
+            "tip5": "5th: 二阶段下降（有停止动作）",
+            "tip5En": "5th: Work clamp dropping in two steps (with pause action).",
+            "topId": 3,
+            "topName": "压框参数",
+            "topNameEn": "Clamp",
+            "type": 1,
+            "value": "3RD",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "1st",
+                            "text": "1st"
+                        },
+                        {
+                            "value": "2nd",
+                            "text": "2nd"
+                        },
+                        {
+                            "value": "3rd",
+                            "text": "3rd",
+                            "selected": true
+                        },
+                        {
+                            "value": "4th",
+                            "text": "4th"
+                        },
+                        {
+                            "value": "5th",
+                            "text": "5th"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "name": "绕线器操作有效",
+            "nameEn": "Bobbin winding operation ON/OFF",
+            "tip1OnEn": "ON: Permit bobbin winding operation.",
+            "tip1OnUnit": "ON: 绕线器操作有效（允许绕线）",
+            "tip2OffEn": "OFF: Forbid bobbin winding operation.",
+            "tip2OffRang": "OFF: 绕线器操作无效（禁止绕线）",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 4,
+            "topName": "绕线参数",
+            "topNameEn": "Bobbin",
+            "type": 0,
+            "value": "Invalid!",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON"
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                },
+                "disabled": true
+            }
+        },
+        {
+            "id": 42,
+            "name": "绕线器速度设置",
+            "nameEn": "Bobbin winding speed",
+            "tip1OnEn": "",
+            "tip1OnUnit": "r/min",
+            "tip2OffEn": "",
+            "tip2OffRang": "( 200~2500mm/min )",
+            "tip3Default": "1300",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 4,
+            "topName": "绕线参数",
+            "topNameEn": "Bobbin",
+            "type": 2,
+            "value": "1500",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 43,
+            "name": "绕线器定时设置",
+            "nameEn": "Bobbin winding operation durative time",
+            "tip1OnEn": "",
+            "tip1OnUnit": "second",
+            "tip2OffEn": "",
+            "tip2OffRang": "  0 ~ 255 second",
+            "tip3Default": " 20",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 4,
+            "topName": "绕线参数",
+            "topNameEn": "Bobbin",
+            "type": 2,
+            "value": "20",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 51,
+            "name": "高速倍率",
+            "nameEn": "Scale of high speed",
+            "tip1OnEn": "",
+            "tip1OnUnit": "%",
+            "tip2OffEn": "",
+            "tip2OffRang": "  0 ~ 100 %",
+            "tip3Default": "100",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 5,
+            "topName": "速度倍率",
+            "topNameEn": "Speed Scale",
+            "type": 2,
+            "value": "100",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 52,
+            "name": "中高速倍率",
+            "nameEn": "Scale of high middle speed(MD2)",
+            "tip1OnEn": "",
+            "tip1OnUnit": "%",
+            "tip2OffEn": "",
+            "tip2OffRang": "  0 ~ 100 %",
+            "tip3Default": " 90",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 5,
+            "topName": "速度倍率",
+            "topNameEn": "Speed Scale",
+            "type": 2,
+            "value": "90",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 53,
+            "name": "中低速倍率",
+            "nameEn": "Scale of low middle speed(MD1)",
+            "tip1OnEn": "",
+            "tip1OnUnit": "%",
+            "tip2OffEn": "",
+            "tip2OffRang": "  0 ~ 100 %",
+            "tip3Default": " 70",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 5,
+            "topName": "速度倍率",
+            "topNameEn": "Speed Scale",
+            "type": 2,
+            "value": "70",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 54,
+            "name": "低速倍率",
+            "nameEn": "Scale of low speed",
+            "tip1OnEn": "",
+            "tip1OnUnit": "%",
+            "tip2OffEn": "",
+            "tip2OffRang": "  0 ~ 100 %",
+            "tip3Default": " 60",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 5,
+            "topName": "速度倍率",
+            "topNameEn": "Speed Scale",
+            "type": 2,
+            "value": "25",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 61,
+            "name": "原点压板动作",
+            "nameEn": "The action of clamp at home position",
+            "tip1OnEn": "ON: Keep pressing at home position.",
+            "tip1OnUnit": "ON: 回原点后压板压下",
+            "tip2OffEn": "OFF: Lift at home position.",
+            "tip2OffRang": "OFF: 回原点后压板抬起",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 6,
+            "topName": "回原点参数",
+            "topNameEn": "Home Position",
+            "type": 0,
+            "value": "OFF",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON"
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF",
+                            "selected": true
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "name": "回零条件设置",
+            "nameEn": "The condition of returning home position",
+            "tip1OnEn": "ON: Permit returning to home position at current state.",
+            "tip1OnUnit": "ON: 在当前状态下允许回零",
+            "tip2OffEn": "OFF: Permit returning to home position when clamp press down,foot lifting and needle's UP position.",
+            "tip2OffRang": "ON: 压板压下/压脚抬起/针上定位情况下允许回零",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 6,
+            "topName": "回原点参数",
+            "topNameEn": "Home Position",
+            "type": 0,
+            "value": "OFF",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON"
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF",
+                            "selected": true
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "name": "回零方式选择",
+            "nameEn": "The mode of returning home position",
+            "tip1OnEn": "1st: The order of returning to home position: X->Y.",
+            "tip1OnUnit": "1st: 先X轴回零后Y轴回零",
+            "tip2OffEn": "2nd: The X axis and Y axis return to home position together.",
+            "tip2OffRang": "2nd: X/Y；两轴联动回零",
+            "tip3Default": "3rd: 先Y轴回零后X轴回零",
+            "tip3En": "3rd: The order of returning to home position: Y->X.",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 6,
+            "topName": "回原点参数",
+            "topNameEn": "Home Position",
+            "type": 1,
+            "value": "2ND",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "1st",
+                            "text": "1st"
+                        },
+                        {
+                            "value": "2nd",
+                            "text": "2nd",
+                            "selected": true
+                        },
+                        {
+                            "value": "3rd",
+                            "text": "3rd"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "name": "回零速度",
+            "nameEn": "Speed of returning home position",
+            "tip1OnEn": "",
+            "tip1OnUnit": "mm/min",
+            "tip2OffEn": "",
+            "tip2OffRang": "  0 ~ 20000 mm/min",
+            "tip3Default": "9500",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 6,
+            "topName": "回原点参数",
+            "topNameEn": "Home Position",
+            "type": 2,
+            "value": "9500",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 65,
+            "name": "回零路径设置",
+            "nameEn": "Set home position path",
+            "tip1OnEn": "ON: The shortest path to return to home position.",
+            "tip1OnUnit": "ON: 最短回零路径",
+            "tip2OffEn": "OFF: Along the pattern file orbit to return to home position.",
+            "tip2OffRang": "OFF: 沿花样文件轨迹回零",
+            "tip3Default": "9500",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 6,
+            "topName": "回原点参数",
+            "topNameEn": "Home Position",
+            "type": 0,
+            "value": "Invalid!",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON"
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                },
+                "disabled": true
+            }
+        },
+        {
+            "id": 66,
+            "name": "回零信号设置",
+            "nameEn": "Set home position signal",
+            "tip1OnEn": "ON: Detect home position signal.",
+            "tip1OnUnit": "ON: 检测零位信号回零",
+            "tip2OffEn": "OFF: Detect encoder signal to return position (only servo effective).",
+            "tip2OffRang": "OFF: 检测编码器信号回零（当前仅伺服有效）",
+            "tip3Default": "9500",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 6,
+            "topName": "回原点参数",
+            "topNameEn": "Home Position",
+            "type": 0,
+            "value": "OFF",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON"
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF",
+                            "selected": true
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "name": "暂停时自动剪线",
+            "nameEn": "Automatic trim at pause",
+            "tip1OnEn": "ON: Permit automatic trim at pause.",
+            "tip1OnUnit": "ON: 暂停后剪线开",
+            "tip2OffEn": "OFF: Forbid automatic trim at pause.",
+            "tip2OffRang": "OFF: 暂停后剪线关",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 7,
+            "topName": "暂停开关设置",
+            "topNameEn": "Pause",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "name": "暂停时机针位置",
+            "nameEn": "Needle's position at pause",
+            "tip1OnEn": "ON: Needle stop at UP position at pause.",
+            "tip1OnUnit": "ON:暂停时机针上定位",
+            "tip2OffEn": "OFF: Needle stop at DOWN position at pause.",
+            "tip2OffRang": "OFF: 暂停时机针下定位",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 7,
+            "topName": "暂停开关设置",
+            "topNameEn": "Pause",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 73,
+            "name": "暂停时两段动作",
+            "nameEn": "Pause switch two-press operation",
+            "tip1OnEn": "ON: Permit two-press operation at pause.",
+            "tip1OnUnit": "ON: 暂停两段动作开",
+            "tip2OffEn": "OFF: Forbid two-press operation at pause.",
+            "tip2OffRang": "OFF: 暂停两段动作关",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 7,
+            "topName": "暂停开关设置",
+            "topNameEn": "Pause",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 74,
+            "name": "暂停操作延时",
+            "nameEn": "Delay of pause",
+            "tip1OnEn": "",
+            "tip1OnUnit": "second",
+            "tip2OffEn": "",
+            "tip2OffRang": "0.00 ~ 12.75 second",
+            "tip3Default": "0.80",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 7,
+            "topName": "暂停开关设置",
+            "topNameEn": "Pause",
+            "type": 4,
+            "value": "0.85",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 75,
+            "name": "暂停时压板动作",
+            "nameEn": "Operation of clamp at pause",
+            "tip1OnEn": "ON: Clamp lifting at UPST.",
+            "tip1OnUnit": "ON: 暂停时压板抬起",
+            "tip2OffEn": "OFF: Clamp keep pressing at UPST.",
+            "tip2OffRang": "OFF: 暂停时压板持续压下",
+            "tip3Default": "0.80",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 7,
+            "topName": "暂停开关设置",
+            "topNameEn": "Pause",
+            "type": 0,
+            "value": "OFF",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON"
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF",
+                            "selected": true
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 76,
+            "name": "暂停开关类型",
+            "nameEn": "Type of pause switch",
+            "tip1OnEn": "ON: Normal.",
+            "tip1OnUnit": "ON: 暂停开关类型为普通开关",
+            "tip2OffEn": "OFF: Auto-locked.",
+            "tip2OffRang": "OFF: 暂停开关类型为自锁开关",
+            "tip3Default": "0.80",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 7,
+            "topName": "暂停开关设置",
+            "topNameEn": "Pause",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 77,
+            "name": "暂停开关计数器关联操作",
+            "nameEn": "Pause switch counter assiciate operation",
+            "tip1OnEn": "ON: Pause switch does not operate counter.",
+            "tip1OnUnit": "ON: 暂停开关不操作计数器",
+            "tip2OffEn": "OFF: Press pause switch to restore processed counter value.",
+            "tip2OffRang": "OFF: 暂停开关按下时恢复加工前计数器值",
+            "tip3Default": "0.80",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 7,
+            "topName": "暂停开关设置",
+            "topNameEn": "Pause",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 81,
+            "name": "作业时间计时允许",
+            "nameEn": "Timing enable at working",
+            "tip1OnEn": "ON: Permit timing at working.",
+            "tip1OnUnit": "ON: 作业缝纫时间计时允许",
+            "tip2OffEn": "OFF: Forbid timing at working.",
+            "tip2OffRang": "OFF: 作业缝纫时间计时禁止",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 8,
+            "topName": "计数器设置",
+            "topNameEn": "Counter",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 82,
+            "name": "加电时作业计时清零",
+            "nameEn": "Counter reset at power on",
+            "tip1OnEn": "ON: Counter reset at power on.",
+            "tip1OnUnit": "ON: 开机时作业计数清零",
+            "tip2OffEn": "OFF: Remian counting at power on.",
+            "tip2OffRang": "OFF: 开机时作业计数保持不变",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 8,
+            "topName": "计数器设置",
+            "topNameEn": "Counter",
+            "type": 0,
+            "value": "OFF",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON"
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF",
+                            "selected": true
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 83,
+            "name": "计数达到后继续作业禁止",
+            "nameEn": "Set work after counting arriving at limit",
+            "tip1OnEn": "ON: Forbid working after counting arriving at limit.",
+            "tip1OnUnit": "ON: 计数达到后禁止继续作业",
+            "tip2OffEn": "OFF: Permit working after counting arriving at limit.",
+            "tip2OffRang": "OFF: 计数达到后允许继续作业",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 8,
+            "topName": "计数器设置",
+            "topNameEn": "Counter",
+            "type": 0,
+            "value": "OFF",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON"
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF",
+                            "selected": true
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 84,
+            "name": "计数器设置有效",
+            "nameEn": "Set counter",
+            "tip1OnEn": "ON: Available counting.",
+            "tip1OnUnit": "ON: 计数器设置有效",
+            "tip2OffEn": "OFF: Invalid counting.",
+            "tip2OffRang": "OFF: 计数器设置无效",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 8,
+            "topName": "计数器设置",
+            "topNameEn": "Counter",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 91,
+            "name": "缝料类型选择",
+            "nameEn": "Select sewing material",
+            "tip1OnEn": "1st: Select sewing material: Flimsy material.",
+            "tip1OnUnit": "1st: 缝料类型选择----薄",
+            "tip2OffEn": "2nd: Select sewing material: Moderate material.",
+            "tip2OffRang": "2nd: 缝料类型选择----中",
+            "tip3Default": "3rd: 缝料类型选择----厚",
+            "tip3En": "3rd: Select sewing material: Thich material.",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 9,
+            "topName": "缝料参数",
+            "topNameEn": "Feed Mode",
+            "type": 1,
+            "value": "1ST",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "1st",
+                            "text": "1st",
+                            "selected": true
+                        },
+                        {
+                            "value": "2nd",
+                            "text": "2nd"
+                        },
+                        {
+                            "value": "3rd",
+                            "text": "3rd"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 92,
+            "name": "选择薄物料",
+            "nameEn": "Ply of firmsy material",
+            "tip1OnEn": "",
+            "tip1OnUnit": "",
+            "tip2OffEn": "",
+            "tip2OffRang": "(  0mm~3mm )",
+            "tip3Default": "  1",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 9,
+            "topName": "缝料参数",
+            "topNameEn": "Feed Mode",
+            "type": 2,
+            "value": "1",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 93,
+            "name": "选择中物料",
+            "nameEn": "Ply of moderate material",
+            "tip1OnEn": "",
+            "tip1OnUnit": "",
+            "tip2OffEn": "",
+            "tip2OffRang": "(  4mm~6mm )",
+            "tip3Default": "  4",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 9,
+            "topName": "缝料参数",
+            "topNameEn": "Feed Mode",
+            "type": 2,
+            "value": "6",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 94,
+            "name": "选择厚物料",
+            "nameEn": "Ply of thick material",
+            "tip1OnEn": "",
+            "tip1OnUnit": "",
+            "tip2OffEn": "",
+            "tip2OffRang": "(  7mm~12mm )",
+            "tip3Default": "  7",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 9,
+            "topName": "缝料参数",
+            "topNameEn": "Feed Mode",
+            "type": 2,
+            "value": "10",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 111,
+            "name": "断线检出功能有效",
+            "nameEn": "Thread trimming sensor's ON/OFF",
+            "tip1OnEn": "ON: The needle thread trimming sensor is available.",
+            "tip1OnUnit": "ON: 断线检出功能有效",
+            "tip2OffEn": "OFF: The needle thread trimming sensor is invalid.",
+            "tip2OffRang": "OFF: 断线检出功能无效",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 11,
+            "topName": "断线检测参数",
+            "topNameEn": "Thread Trimming",
+            "type": 0,
+            "value": "OFF",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON"
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF",
+                            "selected": true
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 112,
+            "name": "断线检出时剪线开",
+            "nameEn": "Thread trimming when the thread trimming sensor detection",
+            "tip1OnEn": "ON: The thread trimming when the needle thread trimming sensor detection is available.",
+            "tip1OnUnit": "ON: 断线检出时剪线开",
+            "tip2OffEn": "OFF: The thread trimming when the needle thread trimming sensor detection is invalid.",
+            "tip2OffRang": "OFF: 断线检出时剪线关",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 11,
+            "topName": "断线检测参数",
+            "topNameEn": "Thread Trimming",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 113,
+            "name": "车缝时忽略针数",
+            "nameEn": "Invalid stitches of the starting time stitch sensor",
+            "tip1OnEn": "",
+            "tip1OnUnit": "",
+            "tip2OffEn": "",
+            "tip2OffRang": "  0 ~ 255 ",
+            "tip3Default": "  3",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 11,
+            "topName": "断线检测参数",
+            "topNameEn": "Thread Trimming",
+            "type": 2,
+            "value": "3",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 114,
+            "name": "断线检出有效针数",
+            "nameEn": "Invalid stitches of the stitch in progress sensor",
+            "tip1OnEn": "",
+            "tip1OnUnit": "",
+            "tip2OffEn": "",
+            "tip2OffRang": "  0 ~ 255 ",
+            "tip3Default": "  2",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 11,
+            "topName": "断线检测参数",
+            "topNameEn": "Thread Trimming",
+            "type": 2,
+            "value": "2",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 115,
+            "name": "断线检出时处理延时",
+            "nameEn": "Delayed timing for broken thread checking out",
+            "tip1OnEn": "",
+            "tip1OnUnit": "second",
+            "tip2OffEn": "",
+            "tip2OffRang": "0.00 ~ 12.75 second",
+            "tip3Default": "0.20",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 11,
+            "topName": "断线检测参数",
+            "topNameEn": "Thread Trimming",
+            "type": 4,
+            "value": "0.20",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 121,
+            "name": "剪线时主轴速度",
+            "nameEn": "Main axis speed for trimming",
+            "tip1OnEn": "",
+            "tip1OnUnit": "r/min",
+            "tip2OffEn": "",
+            "tip2OffRang": "( 100~400mm/min )",
+            "tip3Default": "260",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 12,
+            "topName": "剪线参数",
+            "topNameEn": "Trimming",
+            "type": 2,
+            "value": "360",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 122,
+            "name": "剪线开延时",
+            "nameEn": "Delayed timing before trimming",
+            "tip1OnEn": "",
+            "tip1OnUnit": "second",
+            "tip2OffEn": "",
+            "tip2OffRang": "0.00 ~ 2.55 second",
+            "tip3Default": "0.12",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 12,
+            "topName": "剪线参数",
+            "topNameEn": "Trimming",
+            "type": 4,
+            "value": "0.12",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 123,
+            "name": "拔线持续时间",
+            "nameEn": "Wiping durable period",
+            "tip1OnEn": "",
+            "tip1OnUnit": "second",
+            "tip2OffEn": "",
+            "tip2OffRang": "0.00 ~ 2.55 second",
+            "tip3Default": "0.03",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 12,
+            "topName": "剪线参数",
+            "topNameEn": "Trimming",
+            "type": 4,
+            "value": "0.12",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 124,
+            "name": "拔线关闭时间",
+            "nameEn": "Turn-off time for wiping",
+            "tip1OnEn": "",
+            "tip1OnUnit": "second",
+            "tip2OffEn": "",
+            "tip2OffRang": "0.00 ~ 2.55 second",
+            "tip3Default": "0.12",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 12,
+            "topName": "剪线参数",
+            "topNameEn": "Trimming",
+            "type": 4,
+            "value": "0.13",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 125,
+            "name": "空移剪线设定",
+            "nameEn": "Permit / forbid trim at moving",
+            "tip1OnEn": "ON: Permit trimming at moving.",
+            "tip1OnUnit": "ON: 车缝----空移时剪线",
+            "tip2OffEn": "OFF: Fobid trimming at moving.",
+            "tip2OffRang": "OFF: 车缝----空移时不剪线",
+            "tip3Default": "0.12",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 12,
+            "topName": "剪线参数",
+            "topNameEn": "Trimming",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 126,
+            "name": "拔线器设定",
+            "nameEn": "Set of wiper",
+            "tip1OnEn": "ON: Available wiper at trimming.",
+            "tip1OnUnit": "ON: 拔线器开",
+            "tip2OffEn": "OFF: Invalid wiper at trimming.",
+            "tip2OffRang": "OFF: 拔线器关",
+            "tip3Default": "0.12",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 12,
+            "topName": "剪线参数",
+            "topNameEn": "Trimming",
+            "type": 0,
+            "value": "OFF",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON"
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF",
+                            "selected": true
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 127,
+            "name": "松线开延时",
+            "nameEn": "Thread release output delay time",
+            "tip1OnEn": "",
+            "tip1OnUnit": "",
+            "tip2OffEn": "",
+            "tip2OffRang": "  0 ~ 255 ",
+            "tip3Default": "  0",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 12,
+            "topName": "剪线参数",
+            "topNameEn": "Trimming",
+            "type": 2,
+            "value": "10",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 128,
+            "name": "剪线后机针定位角度",
+            "nameEn": "Needle position after trimming",
+            "tip1OnEn": "ON: Hold current position after trimming.",
+            "tip1OnUnit": "ON: 剪线完成后机针停在原位置",
+            "tip2OffEn": "OFF: Reverse needle lifting position after trimming.",
+            "tip2OffRang": "OFF: 剪线完成后机针逆向回升至上定位",
+            "tip3Default": "  0",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 12,
+            "topName": "剪线参数",
+            "topNameEn": "Trimming",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 131,
+            "name": "底线计数有效",
+            "nameEn": "Counter of suture ON/OFF",
+            "tip1OnEn": "ON: Counter of suture ON.",
+            "tip1OnUnit": "ON: 底线计数有效",
+            "tip2OffEn": "OFF: Counter of suture OFF.",
+            "tip2OffRang": "OFF: 底线计数无效",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 13,
+            "topName": "减法计数",
+            "topNameEn": "Suture",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 132,
+            "name": "加电时底线计数清零",
+            "nameEn": "Reset suture counter when power on",
+            "tip1OnEn": "ON: Reset suture counter when power on.",
+            "tip1OnUnit": "ON: 加电时底线计数器清零",
+            "tip2OffEn": "OFF: Remain suture counter when power on.",
+            "tip2OffRang": "OFF: 加电时底线计数器不清零",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 13,
+            "topName": "减法计数",
+            "topNameEn": "Suture",
+            "type": 0,
+            "value": "OFF",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON"
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF",
+                            "selected": true
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 133,
+            "name": "底线计数上限达到时停止作业",
+            "nameEn": "Set work after suture counter arriving at limit",
+            "tip1OnEn": "ON: Forbid working after counter arriving at limit.",
+            "tip1OnUnit": "ON: 底线计数上限达到时停止作业",
+            "tip2OffEn": "OFF: Permit working after counter arriving at limi.",
+            "tip2OffRang": "OFF: 底线计数上限达到时继续作业",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 13,
+            "topName": "减法计数",
+            "topNameEn": "Suture",
+            "type": 0,
+            "value": "OFF",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON"
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF",
+                            "selected": true
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 141,
+            "name": "加电时机针上定位",
+            "nameEn": "Needle position at power on",
+            "tip1OnEn": "ON: Needle switch to UP position at power on.",
+            "tip1OnUnit": "ON: 加电时机针上定位",
+            "tip2OffEn": "OFF: Remain needle current position at power on.",
+            "tip2OffRang": "OFF: 加电时机针保持当前位置",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 14,
+            "topName": "加电参数",
+            "topNameEn": "Turn On",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 142,
+            "name": "加电时回零点",
+            "nameEn": "Automatic home position return operation at power on",
+            "tip1OnEn": "ON: Return to home position at power on.",
+            "tip1OnUnit": "ON: 加电时自动回零点",
+            "tip2OffEn": "OFF: Remain current position at power on.",
+            "tip2OffRang": "OFF: 加电时不回零点",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 14,
+            "topName": "加电参数",
+            "topNameEn": "Turn On",
+            "type": 0,
+            "value": "OFF",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON"
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF",
+                            "selected": true
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 143,
+            "name": "加电时电机锁紧",
+            "nameEn": "Main axis motor lock up at power on",
+            "tip1OnEn": "ON: Main axis motor locked at power on.",
+            "tip1OnUnit": "ON: 加电时电机锁紧",
+            "tip2OffEn": "OFF: Main axis motor loose at power on.",
+            "tip2OffRang": "OFF: 加电时电机松开",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 14,
+            "topName": "加电参数",
+            "topNameEn": "Turn On",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 144,
+            "name": "加电时压脚抬起",
+            "nameEn": "Lift press foot at power on",
+            "tip1OnEn": "ON: Lift press foot at power on.",
+            "tip1OnUnit": "ON: 加电时压脚抬起",
+            "tip2OffEn": "OFF: Lower press foot at power on.",
+            "tip2OffRang": "OFF: 加电时压脚压下",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 14,
+            "topName": "加电参数",
+            "topNameEn": "Turn On",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 151,
+            "name": "液晶屏屏幕保护开关",
+            "nameEn": "LCD screen protection switch",
+            "tip1OnEn": "ON: Screen savers is ON.",
+            "tip1OnUnit": "ON: 屏幕保护关",
+            "tip2OffEn": "OFF: Screen savers is OFF.",
+            "tip2OffRang": "OFF: 屏幕保护开",
+            "tip3Default": "",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 15,
+            "topName": "液晶屏参数",
+            "topNameEn": "LCD",
+            "type": 0,
+            "value": "ON",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON",
+                            "selected": true
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 152,
+            "name": "屏幕保护时间",
+            "nameEn": "Time of screen saved",
+            "tip1OnEn": "",
+            "tip1OnUnit": "",
+            "tip2OffEn": "",
+            "tip2OffRang": "( 0~60min )",
+            "tip3Default": "  5",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 15,
+            "topName": "液晶屏参数",
+            "topNameEn": "LCD",
+            "type": 2,
+            "value": "1",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 161,
+            "name": "压脚通常下降高度",
+            "nameEn": "Height of foot",
+            "tip1OnEn": "",
+            "tip1OnUnit": "mm",
+            "tip2OffEn": "",
+            "tip2OffRang": "0.0 ~ 25.5 mm",
+            "tip3Default": "0.0",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 16,
+            "topName": "压脚参数",
+            "topNameEn": "Foot Hight",
+            "type": 4,
+            "value": "5.0",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 162,
+            "name": "压脚打板默认高度",
+            "nameEn": "Default input foot height(valid with absolute mode)",
+            "tip1OnEn": "",
+            "tip1OnUnit": "mm",
+            "tip2OffEn": "",
+            "tip2OffRang": "0.0 ~ 25.5 mm",
+            "tip3Default": "0.0",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 16,
+            "topName": "压脚参数",
+            "topNameEn": "Foot Hight",
+            "type": 4,
+            "value": "4.0",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 163,
+            "name": "压脚下降时间（模拟量脚踏板有效）",
+            "nameEn": "Linkage method of foot",
+            "tip1OnEn": "1st: Linkage is valid with the foot switch but invalid in the zero point.",
+            "tip1OnUnit": "1st: 通过压脚开联动下降，但在送布退避位置不下降",
+            "tip2OffEn": "2nd: Linkage is valid with the foot switch.",
+            "tip2OffRang": "2nd: 通过压脚开联动下降",
+            "tip3Default": "3rd: 压脚开关不联动，缝制来时即下降",
+            "tip3En": "3rd: Linkage is invalid.",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 16,
+            "topName": "压脚参数",
+            "topNameEn": "Foot Hight",
+            "type": 1,
+            "value": "3RD",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "1st",
+                            "text": "1st"
+                        },
+                        {
+                            "value": "2nd",
+                            "text": "2nd"
+                        },
+                        {
+                            "value": "3rd",
+                            "text": "3rd",
+                            "selected": true
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 164,
+            "name": "压脚高度编程方式",
+            "nameEn": "Input mode of foot height",
+            "tip1OnEn": "ON: Absolute coordinate.",
+            "tip1OnUnit": "ON: 绝对坐标",
+            "tip2OffEn": "OFF: Relative coordinate.",
+            "tip2OffRang": "OFF: 相对坐标",
+            "tip3Default": "3rd: 压脚开关不联动，缝制来时即下降",
+            "tip3En": "3rd: Linkage is invalid.",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 16,
+            "topName": "压脚参数",
+            "topNameEn": "Foot Hight",
+            "type": 0,
+            "value": "OFF",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "ON",
+                            "text": "ON"
+                        },
+                        {
+                            "value": "OFF",
+                            "text": "OFF",
+                            "selected": true
+                        },
+                        {
+                            "value": "3rd",
+                            "text": "3rd"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 165,
+            "name": "压脚空移下降方式",
+            "nameEn": "Foot fall method of feeding",
+            "tip1OnEn": "1st: Uplift when feeding, drop when sewing.",
+            "tip1OnUnit": "1st: 空移抬起，车缝放下",
+            "tip2OffEn": "2nd: Uplift when feeding(valid at modify mode).",
+            "tip2OffRang": "2nd: 空移抬起，车缝时保持不动（修改有效）",
+            "tip3Default": "3rd: 压脚始终抬起（打板与修改时有效）",
+            "tip3En": "3rd: Always uplift(valid at modify mode).",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 16,
+            "topName": "压脚参数",
+            "topNameEn": "Foot Hight",
+            "type": 1,
+            "value": "1ST",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "1st",
+                            "text": "1st",
+                            "selected": true
+                        },
+                        {
+                            "value": "2nd",
+                            "text": "2nd"
+                        },
+                        {
+                            "value": "3rd",
+                            "text": "3rd"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 171,
+            "name": "自动报警方式",
+            "nameEn": "Type of automatic alarm",
+            "tip1OnEn": "1st: The automatic alarm is OFF.",
+            "tip1OnUnit": "1st: 自动报警关",
+            "tip2OffEn": "2nd: The automatic of alarm is ON.",
+            "tip2OffRang": "2nd: 自动报警开",
+            "tip3Default": "3rd: 仅在页面切换时报警",
+            "tip3En": "3rd: The alarm appears when the screen is being refreshed.",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 17,
+            "topName": "报警设置",
+            "topNameEn": "Automatic Alarm",
+            "type": 1,
+            "value": "2ND",
+            "editor": {
+                "type": "combobox",
+                "options": {
+                    "valueField": "value",
+                    "textField": "text",
+                    "editable": false,
+                    "panelHeight": "0",
+                    "data": [
+                        {
+                            "value": "1st",
+                            "text": "1st"
+                        },
+                        {
+                            "value": "2nd",
+                            "text": "2nd",
+                            "selected": true
+                        },
+                        {
+                            "value": "3rd",
+                            "text": "3rd"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 172,
+            "name": "自动报警显示延迟时间",
+            "nameEn": "The durative time of automatic alarm",
+            "tip1OnEn": "",
+            "tip1OnUnit": "second",
+            "tip2OffEn": "",
+            "tip2OffRang": "0.00 ~ 12.75 second",
+            "tip3Default": "0.00",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 17,
+            "topName": "报警设置",
+            "topNameEn": "Automatic Alarm",
+            "type": 4,
+            "value": "1.00",
+            "editor": {
+                "type": "numberbox"
+            }
+        },
+        {
+            "id": 173,
+            "name": "自动报警间隔时间",
+            "nameEn": "The periodic time of automatic alarm",
+            "tip1OnEn": "",
+            "tip1OnUnit": "",
+            "tip2OffEn": "",
+            "tip2OffRang": "  0 ~ 255 ",
+            "tip3Default": "  0",
+            "tip3En": "",
+            "tip4": "",
+            "tip4En": "",
+            "tip5": "",
+            "tip5En": "",
+            "topId": 17,
+            "topName": "报警设置",
+            "topNameEn": "Automatic Alarm",
+            "type": 2,
+            "value": "10",
+            "editor": {
+                "type": "numberbox"
+            }
+        }
+    ]
+}
