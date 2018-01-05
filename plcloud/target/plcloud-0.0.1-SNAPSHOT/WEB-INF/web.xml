@@ -15,6 +15,11 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:spring/app-config.xml</param-value>
   </context-param>
+   <!--启动一个watchdog线程每1800秒扫描一下log4j配置文件的变化-->  
+<!--   <context-param>      
+    <param-name>log4jRefreshInterval</param-name>      
+    <param-value>1800000</param-value>      
+  </context-param> -->
   <filter>
     <filter-name>ResponseOverrideFilter</filter-name>
     <filter-class>org.displaytag.filter.ResponseOverrideFilter</filter-class>
@@ -26,6 +31,10 @@
   <filter-mapping>
     <filter-name>ResponseOverrideFilter</filter-name>
     <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>ResponseOverrideFilter</filter-name>
+    <url-pattern>*.html</url-pattern>
   </filter-mapping>
   <filter>
     <filter-name>Set Character Encoding</filter-name>
@@ -39,7 +48,7 @@
     <filter-name>Set Character Encoding</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  <filter>
+<!--   <filter>
     <filter-name>AuthenticationFilter</filter-name>
     <filter-class>com.routon.pmax.common.filter.AuthenticationFilter</filter-class>
     <init-param>
@@ -50,7 +59,7 @@
   <filter-mapping>
     <filter-name>AuthenticationFilter</filter-name>
     <url-pattern>/*</url-pattern>
-  </filter-mapping>
+  </filter-mapping> -->
   <listener>
     <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
   </listener>

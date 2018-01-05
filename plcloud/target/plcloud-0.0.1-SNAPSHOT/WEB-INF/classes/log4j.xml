@@ -12,7 +12,7 @@
 	</appender>
 	
 	<appender name="systemLog" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${pmaxadmin.root}/log/log.txt"/>
+		<param name="File" value="${plcloud.root}/log/log.txt"/>
 		<param name="encoding" value="UTF-8"/>
 		<param name="MaxFileSize" value="500KB"/>
 		<param name="MaxBackupIndex" value="1000"/>
@@ -22,7 +22,7 @@
 	</appender>
 	
 	<appender name="springLog" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${pmaxadmin.root}/log/spring.txt"/>
+		<param name="File" value="${plcloud.root}/log/spring.txt"/>
 		<param name="encoding" value="UTF-8"/>
 		<param name="MaxFileSize" value="500KB"/>
 		<param name="MaxBackupIndex" value="1000"/>
@@ -32,7 +32,7 @@
 	</appender>
 	
 	<appender name="mybatisLog" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${pmaxadmin.root}/log/mybatis.txt"/>
+		<param name="File" value="${plcloud.root}/log/mybatis.txt"/>
 		<param name="encoding" value="UTF-8"/>
 		<param name="MaxFileSize" value="500KB"/>
 		<param name="MaxBackupIndex" value="1000"/>
@@ -42,10 +42,11 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.wh">
+<!-- 	<logger name="com.routon.idr.AMQP">
 		<level value="info" />
+		<appender-ref ref="console" />
 		<appender-ref ref="systemLog" />
-	</logger>
+	</logger> -->
 	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework">
