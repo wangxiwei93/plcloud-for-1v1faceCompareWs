@@ -6,14 +6,17 @@ package com.routon.pmax.admin.compare.bean;
  * @author: wangxiwei
  */
 public enum ResultStatus {
-	SUCCESS(200, "比对成功"),
+	SUCCESS(0, "比对成功"),
 	FAIL(500, "比对失败"),
-	FAIL_nodata_recevied(0, "没有收到服务器返回的数据"),
 	JOB_ID_DIF(-1, "收到结果的ID和发出的不符"),
 	IMAGEA_NOT_EXIST(-2,"imageA不存在"),
 	IMAGEB_NOT_EXIST(-3,"imageB不存在"),
-	FORM_NO_IMAGE(-4,"表单中缺少照片");
-	
+	FORM_NO_IMAGE(-4,"表单中缺少照片"),
+	FAIL_nodata_recevied(-5, "没有收到服务器返回的数据"),
+	APPID_NOT_EXIST(4101, "APP_ID不正确"),
+	APPSECRET_NOT_EXIST(4101, "APP_SECRET不正确"),
+	IMAGE_TOO_BIG(8498, "图片过大，请不要大于3M"),
+	SYSTEM_BUSY(4098, "系统忙");
 	private int status;
 	private String text;
 

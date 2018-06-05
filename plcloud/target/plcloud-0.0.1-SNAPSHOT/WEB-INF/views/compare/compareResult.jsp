@@ -8,10 +8,12 @@
 	<input id = "input-2" type="text" class="form-control" required placeholder="设置比对阈值,分值范围：0-1的小数"><br>
 	<button id ="compareButton" type="button" class="btn btn-danger" onclick="">开始比对</button>
 	<br>
-	<h4>比对分数：</h4>
-	<div id = "scores" style="color:#FF0000"></div>
-	<h4>比对结果：</h4>
-	<div id = "result" style="color:#FF0000"></div>
+	<div id="display">
+		<h4>比对分数：</h4>
+		<div id = "scores" style="color:#FF0000"></div>
+		<h4>比对结果：</h4>
+		<div id = "result" style="color:#FF0000"></div>
+	</div>
 </div>
 <script>
 
@@ -25,14 +27,25 @@ $("#compareButton").click(function() {
 		url:'${base}compare/getImageNum.do',
 		type:'post',
 		async:false,
+		beforeSend:function(){
+			 /* document.write(_LoadingHtml);  */
+			$("#compareButton").attr("disabled","true");
+			$("#display").html('<img src="../images/loading.gif"/>');
+		},
 		success:function(data){
+/* 	        var loadingMask = document.getElementById('loadingDiv');
+	        loadingMask.parentNode.removeChild(loadingMask); */
 			if(data == 0){
 				alert("请先上传两张照片！");
+				$("#compareButton").removeAttr("disabled");
+				$("#display").html('<h4>比对分数：</h4><div id = "scores" style="color:#FF0000"></div><h4>比对结果：</h4><div id = "result" style="color:#FF0000"></div>');
 				return;
 			} else{
 				jQuery.post("${base}compare/TwoImagePath.do", 
 						{'threshold' : threshold}, 
 						function(data, textStatus) {
+							$("#compareButton").removeAttr("disabled");
+							$("#display").html('<h4>比对分数：</h4><div id = "scores" style="color:#FF0000"></div><h4>比对结果：</h4><div id = "result" style="color:#FF0000"></div>');
 							var scores = data.scores;
 							var text = data.text;
 							$("#scores").html(scores);
@@ -63,7 +76,7 @@ var FileInput = function () {
 		//minImageHeight: 50,//图片的最小高度
 		//maxImageWidth: 1000,//图片的最大宽度
 		//maxImageHeight: 1000,//图片的最大高度
-		//maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+		maxFileSize: 2048,//单位为kb，如果为0表示不限制文件大小
 		//minFileCount: 0,
 		maxFileCount: 2, //表示允许同时上传的最大文件个数
 		enctype: 'multipart/form-data',
@@ -83,6 +96,7 @@ var FileInput = function () {
 };
 
 $(function () {
+/* 	document.getElementById("div").style.display=""; */
     //0.初始化fileinput
     var oFileInput = new FileInput();
     oFileInput.Init("input-1", "/api/OrderApi/ImportOrder");

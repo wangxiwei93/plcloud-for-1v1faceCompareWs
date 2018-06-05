@@ -19,7 +19,7 @@ public class FACE_COMPARE_IMG_JOB_RESULT {
 	public int job_id = 0;
 	public int job_state;
 	public byte[] clientUUID;
-	public double score = 0;
+	public float score = 0f;
 	public int job_id_req = 0;
 
 	public void reset(){

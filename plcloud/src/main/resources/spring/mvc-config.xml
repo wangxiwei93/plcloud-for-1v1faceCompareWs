@@ -10,20 +10,31 @@
 
 	<mvc:annotation-driven ></mvc:annotation-driven>
 	
-	<context:component-scan base-package="com.routon.pmax.admin.**.action"></context:component-scan>
+	<context:property-placeholder location="classpath:rabbitmq.properties" />
+	
+	<context:component-scan base-package="com.routon.**.**.**.**"></context:component-scan>
 	
 <!-- 	<bean id="compareBean" class="com.routon.idr.compare.CommonCompare"></bean>
 	<bean id="ReceiveBean" class="com.routon.idr.compare.RecvMessageTask" scope="prototype"></bean> -->
 	<bean id="CompareProducerBean" class="com.routon.idr.AMQP.CompareProducer"></bean>
 	
+	<!-- <bean id="ConnectionListnerBean" class="com.routon.idr.AMQP.ConnectionListenerUtil"></bean>
+	
+	<bean id="BlockedListnerBean" class="com.routon.idr.AMQP.BlockedListenerUtil"></bean> -->
+	
 	<bean id="connectionFactory"
       class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
     	<constructor-arg value="somehost"/>
-    	<property name="host" value="172.16.42.134" />   
-        <property name="port" value="5672" /> 
-    	<property name="username" value="admin"/>
-    	<property name="password" value="admin"/>
-    	<property name="channelCacheSize" value="25"/>
+    	<property name="host" value="${rabbitmq.host}" />
+        <property name="port" value="${rabbitmq.port}" /> 
+    	<property name="username" value="${rabbitmq.username}"/>
+    	<property name="password" value="${rabbitmq.password}"/>
+    	<property name="connectionCacheSize" value="${rabbitmq.connectionCacheSize}"/>
+    	<!-- <property name="channelCacheSize" value="${rabbitmq.channelCacheSize}"/> -->
+    	<property name="cacheMode" value="${rabbitmq.cacheMode}"/>
+    	<!-- <property name="connectionListeners" ref="ConnectionListnerBean"/> -->
+    	<!-- <property name="requestedHeartBeat" value="0"/> -->
+    	<!-- <property name="addresses" value="127.0.0.1:5672,127.0.0.1:5673"/> -->
 	</bean>
 	
 	<bean id="rabbitAdmin"  class="org.springframework.amqp.rabbit.core.RabbitAdmin">    
@@ -62,17 +73,17 @@
         <constructor-arg index="4"><null/></constructor-arg>
     </bean> 
     
-	<bean id="rabbitListenerContainerFactory"
+<!-- 	<bean id="rabbitListenerContainerFactory"
       class="org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory">
     	<property name="connectionFactory" ref="connectionFactory"/>
     	<property name="concurrentConsumers" value="25"/>
     	<property name="maxConcurrentConsumers" value="30"/>
-	</bean>
+	</bean> -->
 	
 	<!-- 用于接收消息的处理类 -->    
     <bean id="CompareConsumerBean"   class="com.routon.idr.AMQP.CompareConsumer"></bean>    
 	
-	<rabbit:listener-container connection-factory="connectionFactory" acknowledge="auto">
+	<rabbit:listener-container connection-factory="connectionFactory" acknowledge="auto" concurrency= "50">
     	<rabbit:listener queues="ConsumerQueue" ref="CompareConsumerBean"/>
 	</rabbit:listener-container>
 <!-- 	<bean id="messageListenerAdapter"  class="org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter">    
