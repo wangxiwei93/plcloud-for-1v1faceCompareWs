@@ -1,8 +1,0 @@
-package com.routon.idr.compare;
-
-import com.routon.idr.rabbitmq.FACE_COMPARE_IMG_JOB_RESULT;
-
-public interface INetInterfaceCallBack {
-	
-	public void onCompareFinished(FACE_COMPARE_IMG_JOB_RESULT result);
-}
