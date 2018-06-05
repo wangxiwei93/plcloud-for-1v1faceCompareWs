@@ -1,9 +1,11 @@
 package com.routon.pmax.admin.compare.action;
 
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.annotation.Resource;
@@ -28,6 +30,8 @@ import com.routon.pmax.admin.compare.bean.JsonData;
 import com.routon.pmax.admin.compare.bean.JsonResult;
 import com.routon.pmax.admin.compare.bean.ResultStatus;
 
+import Decoder.BASE64Decoder;
+
 /**
  * 人脸1:1比对控制器
  * @author wangxiwei93
@@ -40,7 +44,13 @@ public class CompareController{
 	
 	static Logger logger = Logger.getLogger(CompareController.class);
 	
+	public static FACE_IMAGE2_DATA face_image2_data = null;
+	
 	private static ConcurrentHashMap<Integer,FACE_COMPARE_IMG_JOB_RESULT> replyMap = new ConcurrentHashMap<Integer,FACE_COMPARE_IMG_JOB_RESULT>();
+	
+	public final static String APP_ID = "43A6AA5473AE4D8BB05ED89E8C692B90";
+	
+	public final static String APP_SECRET = "87839397994A45DC8A9F350D838A8270";
 	
 	//private final Object mLockInputBean = new Object();
 
@@ -49,16 +59,6 @@ public class CompareController{
 	
 	@Resource(name = "CompareConsumerBean")
 	private CompareConsumer compareConsumer;
-	
-/*	@RequestMapping(value = RMPATH + "show")
-	public String compare1V1(){
-		return "compare/compareResult";
-	}
-	
-	@RequestMapping(value = RMPATH + "vitalSignsDetection")
-	public String vitalSignsDetection(){
-		return "compare/VitalSignsDetection";
-	}*/
 	
 	public JsonResult getTwoImagePath(String imagepath, int jobId) throws Exception, IOException{
 		JsonResult result = null;
@@ -92,18 +92,18 @@ public class CompareController{
 			replyMap.remove(jobId);
 			if(reply == null){
 				logger.info("no data received!!!");
-				JsonData data = new JsonData(bak.version, jobId, 0, 0);
-				result = new JsonResult(ResultStatus.FAIL_nodata_recevied, data);
+				//JsonData data = new JsonData(bak.version, jobId, 0, 0);
+				result = new JsonResult(ResultStatus.FAIL_nodata_recevied, 0.0);
 			} else{
 				String kv = bak.version+";"+ jobId +";" + reply.job_id+";"+ reply.score + ";" + reply.comp_result;
 				logger.info("return result:" + kv);
 				if(bak.comp_result == COMP_RESULT.fail_data_null){
-					JsonData data = new JsonData(bak.version, jobId, 0, 0);
-					result = new JsonResult(ResultStatus.FAIL_nodata_recevied, data);
+					//JsonData data = new JsonData(bak.version, jobId, 0, 0);
+					result = new JsonResult(ResultStatus.FAIL_nodata_recevied, 0.0);
 					return result;
 				}
-				JsonData data = new JsonData(bak.version, jobId, reply.job_id, reply.score);
-				result = new JsonResult(ResultStatus.SUCCESS, data);
+				//JsonData data = new JsonData(bak.version, jobId, reply.job_id, reply.score);
+				result = new JsonResult(ResultStatus.SUCCESS, reply.score);
 			}
 
 		} catch (Exception e) {
@@ -119,7 +119,7 @@ public class CompareController{
 	 */
 	@RequestMapping(value = "/v1/facecompare1v1")
 	public @ResponseBody
-	JsonResult faceComapre(HttpServletRequest request, 
+	JsonResult faceCompare(HttpServletRequest request, 
 			@RequestParam(value = "imageA", required = false) MultipartFile fileA,
 			@RequestParam(value = "imageB", required = false) MultipartFile fileB,
 			@RequestParam(value = "images", required = false) MultipartFile[] file) throws IOException, Exception{
@@ -196,11 +196,14 @@ public class CompareController{
 	 */
 	@RequestMapping(value = "/v2/facecompare1v1")
 	public @ResponseBody
-	JsonResult faceComaprev2(HttpServletRequest request, 
+	JsonResult faceCompare2(HttpServletRequest request, 
 			@RequestParam(value = "imageA", required = false) MultipartFile fileA,
 			@RequestParam(value = "imageB", required = false) MultipartFile fileB,
 			@RequestParam(value = "images", required = false) MultipartFile[] file){
 		
+		long bAllTime = System.currentTimeMillis();
+		logger.info("step1:function has received data---");
+		long begin = System.currentTimeMillis();
 		JsonResult result = null;
 		int jobId = CompareProducer.generateQueueName();
 		MultipartFile compareA = null;
@@ -213,12 +216,192 @@ public class CompareController{
 			compareA = file[0];
 			compareB = file[1];
 		}
+		long end = System.currentTimeMillis();
+		logger.info("step1 costs [" + (end - begin) + "]ms");
 		try {
+			logger.info("step2:begin calculate the time of stream to BufferedImage:");
+			long bTime = System.currentTimeMillis();
 			BufferedImage i1= ImageIO.read(compareA.getInputStream());
 			BufferedImage i2 = ImageIO.read(compareB.getInputStream());
+			long eTime = System.currentTimeMillis();
+			logger.info("step2 costs [" + (eTime - bTime) + "]ms");
 			/*int jobId = CompareProducer.generateQueueName();*/
 			
-			logger.info("begin compare");
+			FACE_IMAGE_INFO image1 = new FACE_IMAGE_INFO();
+			image1.height = i1.getHeight();
+			image1.width = i1.getWidth();
+			logger.info("step3:convert image into BGR:");
+			long bBgrTime = System.currentTimeMillis();
+			image1.data = ConvertBGR.getMatrixBGR(i1);
+			FACE_IMAGE_INFO image2 = new FACE_IMAGE_INFO();
+			image2.height = i2.getHeight();
+			image2.width = i2.getWidth();
+			image2.data = ConvertBGR.getMatrixBGR(i2);
+			long eBgrTime = System.currentTimeMillis();
+			//System.out.println(Arrays.toString(image1.data));
+			logger.info("step3 costs [" + (eBgrTime - bBgrTime) + "]ms");
+			FACE_IMAGE2_DATA face_image2_data = new FACE_IMAGE2_DATA();
+			face_image2_data.job_id = jobId;
+			face_image2_data.image_info_first = image1;
+			face_image2_data.image_info_second = image2;
+			logger.info("step4:begin compare:");
+			long bCompareTime = System.currentTimeMillis();
+			//设置回调并发送1:1比对
+			compareConsumer.setCallback(compareProducer);
+			FACE_COMPARE_IMG_JOB_RESULT bak = compareProducer.sendMessage(face_image2_data);
+			long eCompareTime = System.currentTimeMillis();
+			logger.info("step4 costs [" + (eCompareTime - bCompareTime) + "]ms");
+			
+			logger.info("step5:begin put into concurrentHashMap:");
+			long bMapTime = System.currentTimeMillis();
+		/*	synchronized (mLockInputBean) {*/
+				replyMap.put(bak.job_id, bak);
+			/*}*/
+			FACE_COMPARE_IMG_JOB_RESULT reply = replyMap.get(jobId);
+			replyMap.remove(jobId);
+			if(reply == null){
+				logger.info("no data received!!!");
+				//JsonData data = new JsonData(bak.version, jobId, 0, 0);
+				result = new JsonResult(ResultStatus.FAIL_nodata_recevied, 0.0);
+			} else{
+				String kv = bak.version+";"+ jobId +";" + reply.job_id+";"+ reply.score + ";" + reply.comp_result;
+				logger.info("return result:" + kv);
+				if(bak.comp_result == COMP_RESULT.fail_data_null){
+					//JsonData data = new JsonData(bak.version, jobId, 0, 0);
+					result = new JsonResult(ResultStatus.FAIL_nodata_recevied, 0.0);
+					return result;
+				}
+				//JsonData data = new JsonData(bak.version, jobId, reply.job_id, reply.score);
+				result = new JsonResult(ResultStatus.SUCCESS, reply.score);
+			}
+			long eMapTime = System.currentTimeMillis();
+			logger.info("step5 costs [" + ( eMapTime -  bMapTime) + "]ms");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		long eAllTime = System.currentTimeMillis();
+		logger.info("function costs [" + (eAllTime - bAllTime) + "]ms");
+		return result;
+		
+	}
+	
+	@RequestMapping(value = "/v2/facecompare1v1NoBGR")
+	public @ResponseBody
+	JsonResult faceCompare2NoBGR(HttpServletRequest request){
+		
+		JsonResult result = null;
+		int jobId = CompareProducer.generateQueueName();
+		long bAllTime = System.currentTimeMillis();
+		try {
+			face_image2_data.job_id = jobId;
+			logger.info("step4:begin compare:");
+			long bCompareTime = System.currentTimeMillis();
+			//设置回调并发送1:1比对
+			compareConsumer.setCallback(compareProducer);
+			FACE_COMPARE_IMG_JOB_RESULT bak = compareProducer.sendMessage(face_image2_data);
+			long eCompareTime = System.currentTimeMillis();
+			logger.info("step4 costs [" + (eCompareTime - bCompareTime) + "]ms");
+			
+			logger.info("step5:begin put into concurrentHashMap:");
+			long bMapTime = System.currentTimeMillis();
+		/*	synchronized (mLockInputBean) {*/
+				replyMap.put(bak.job_id, bak);
+			/*}*/
+			FACE_COMPARE_IMG_JOB_RESULT reply = replyMap.get(jobId);
+			replyMap.remove(jobId);
+			if(reply == null){
+				logger.info("no data received!!!");
+				//JsonData data = new JsonData(bak.version, jobId, 0, 0);
+				result = new JsonResult(ResultStatus.FAIL_nodata_recevied, 0.0);
+			} else{
+				String kv = bak.version+";"+ jobId +";" + reply.job_id+";"+ reply.score + ";" + reply.comp_result;
+				logger.info("return result:" + kv);
+				if(bak.comp_result == COMP_RESULT.fail_data_null){
+					//JsonData data = new JsonData(bak.version, jobId, 0, 0);
+					result = new JsonResult(ResultStatus.FAIL_nodata_recevied, 0.0);
+					return result;
+				}
+				//JsonData data = new JsonData(bak.version, jobId, reply.job_id, reply.score);
+				result = new JsonResult(ResultStatus.SUCCESS, reply.score);
+			}
+			long eMapTime = System.currentTimeMillis();
+			logger.info("step5 costs [" + ( eMapTime -  bMapTime) + "]ms");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		long eAllTime = System.currentTimeMillis();
+		logger.info("function costs [" + (eAllTime - bAllTime) + "]ms");
+		return result;
+		
+	}
+	
+	/**
+	 * 1v1测试页面
+	 * @return
+	 */
+	@RequestMapping(value = "/v2/facecompare1v1Test")
+	public String HTMLtest(){
+		return "compare/compareTest";
+	}
+	
+	
+	/**
+	 * 版本v3，接收比对图片的Base64信息
+	 * @throws Exception 
+	 * @throws IOException 
+	 */
+	@RequestMapping(value = /*"/v3/facecompare1v1"*/ "/face/tool/compare")
+	public @ResponseBody
+	JsonResult faceCompareOffical(HttpServletRequest request, 
+			@RequestParam(value = "imgA") String fileA,
+			@RequestParam(value = "imgB") String fileB,
+			@RequestParam(value = "app_id") String app_id,
+			@RequestParam(value = "app_secret") String app_secret){
+		
+		JsonResult result = null;
+		
+		if(fileA == null){
+			result = new JsonResult(ResultStatus.IMAGEA_NOT_EXIST, 0.0);
+		}
+		if(fileB == null){
+			result = new JsonResult(ResultStatus.IMAGEB_NOT_EXIST, 0.0);
+		}
+		if(app_id == null || !APP_ID.equals(app_id)){
+			//JsonData data = new JsonData(1, 0, 0, 0);
+			result = new JsonResult(ResultStatus.APPID_NOT_EXIST, 0.0);
+			return result;
+		}
+		if(app_secret == null || !APP_SECRET.equals(app_secret)){
+			//JsonData data = new JsonData(1, 0, 0, 0);
+			result = new JsonResult(ResultStatus.APPSECRET_NOT_EXIST, 0.0);
+			return result;
+		}
+		long btime = System.currentTimeMillis();
+		int jobId = CompareProducer.generateQueueName();
+		long Base64toISbTime = System.currentTimeMillis();
+		InputStream isA = BaseToInputStream(fileA);
+		InputStream isB = BaseToInputStream(fileB);
+		try {
+			if(isA.available() >= 3 * 1024 * 1024 || isB.available() >= 3 * 1024 * 1024){
+				//JsonData data = new JsonData(1, 0, 0, 0);
+				result = new JsonResult(ResultStatus.IMAGE_TOO_BIG, 0.0);
+				return result;
+			}
+		} catch (IOException e1) {
+			e1.printStackTrace();
+			logger.error(e1.getMessage(), e1);
+		}
+		long Base64toISeTime = System.currentTimeMillis();
+		try {
+			long BufferBTime = System.currentTimeMillis();
+			BufferedImage i1= ImageIO.read(isA);
+			BufferedImage i2 = ImageIO.read(isB);
+			long BufferETime = System.currentTimeMillis();
+			logger.debug("base64toStream costs:[" + (Base64toISeTime - Base64toISbTime) + "]ms");
+			logger.debug("readBuffer costs:[" + (BufferETime - BufferBTime) + "]ms");
+			long assembleDataBTime = System.currentTimeMillis();
 			FACE_IMAGE_INFO image1 = new FACE_IMAGE_INFO();
 			image1.height = i1.getHeight();
 			image1.width = i1.getWidth();
@@ -231,39 +414,126 @@ public class CompareController{
 			face_image2_data.job_id = jobId;
 			face_image2_data.image_info_first = image1;
 			face_image2_data.image_info_second = image2;
+			long assembleDataETime = System.currentTimeMillis();
+			logger.debug("assembleData costs:[" + (assembleDataETime - assembleDataBTime) + "]ms");
+			long sendDataBtime = System.currentTimeMillis();
 			//设置回调并发送1:1比对
 			compareConsumer.setCallback(compareProducer);
-			FACE_COMPARE_IMG_JOB_RESULT bak = compareProducer.sendMessage(face_image2_data);
-		/*	synchronized (mLockInputBean) {*/
-				replyMap.put(bak.job_id, bak);
-			/*}*/
+			FACE_COMPARE_IMG_JOB_RESULT bak = null;
+			try {
+				bak = compareProducer.sendMessage(face_image2_data);
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error(e.getMessage(), e);
+			}
+			
+			if(bak == null){
+				return new JsonResult(ResultStatus.SYSTEM_BUSY, 0.0);
+			}
+			replyMap.put(bak.job_id, bak);
+
 			FACE_COMPARE_IMG_JOB_RESULT reply = replyMap.get(jobId);
 			replyMap.remove(jobId);
+			
 			if(reply == null){
 				logger.info("no data received!!!");
-				JsonData data = new JsonData(bak.version, jobId, 0, 0);
-				result = new JsonResult(ResultStatus.FAIL_nodata_recevied, data);
+				//JsonData data = new JsonData(bak.version, jobId, 0, 0);
+				result = new JsonResult(ResultStatus.FAIL_nodata_recevied, 0.0);
 			} else{
 				String kv = bak.version+";"+ jobId +";" + reply.job_id+";"+ reply.score + ";" + reply.comp_result;
 				logger.info("return result:" + kv);
+				System.out.println("return result:" + kv);
 				if(bak.comp_result == COMP_RESULT.fail_data_null){
-					JsonData data = new JsonData(bak.version, jobId, 0, 0);
-					result = new JsonResult(ResultStatus.FAIL_nodata_recevied, data);
+					//JsonData data = new JsonData(bak.version, jobId, 0, 0);
+					result = new JsonResult(ResultStatus.FAIL_nodata_recevied, 0.0);
 					return result;
 				}
-				JsonData data = new JsonData(bak.version, jobId, reply.job_id, reply.score);
-				result = new JsonResult(ResultStatus.SUCCESS, data);
+				//JsonData data = new JsonData(bak.version, jobId, reply.job_id, reply.score);
+				result = new JsonResult(ResultStatus.SUCCESS, reply.score);
 			}
-
-		} catch (Exception e) {
+			
+			long receivedDataEtime = System.currentTimeMillis();
+			logger.debug("algorithm costs:[" + (receivedDataEtime - sendDataBtime) + "]ms");
+			
+		} catch (IOException e) {
 			e.printStackTrace();
+			logger.error(e.getMessage(), e);
 		}
+		long etime = System.currentTimeMillis();
+		logger.debug("all costs:["+ (etime - btime) + "]ms");
 		return result;
-		
+				
 	}
 	
-	@RequestMapping(value = "/v2/facecompare1v1Test")
-	public String HTMLtest(){
-		return "compare/compareTest";
+	
+	/**
+	 * 忽略图片加载和传输时间，测试性能
+	 * @param request
+	 * @param file
+	 * @return
+	 */
+	@RequestMapping(value = "/v2/testBgr")
+	public @ResponseBody
+	String testNoTransferBGR(HttpServletRequest request,
+			@RequestParam(value = "images", required = false) MultipartFile[] file){
+		
+		int jobId = CompareProducer.generateQueueName();
+		MultipartFile compareA = null;
+		MultipartFile compareB = null;
+		if(file.length == 2){
+			compareA = file[0];
+			compareB = file[1];
+		}
+			logger.info("step2:begin calculate the time of stream to BufferedImage:");
+			long bTime = System.currentTimeMillis();
+			
+		try {
+				
+			BufferedImage i1 = ImageIO.read(compareA.getInputStream());
+			BufferedImage i2 = ImageIO.read(compareB.getInputStream());
+			long eTime = System.currentTimeMillis();
+			logger.info("step2 costs [" + (eTime - bTime) + "]ms");
+			
+			FACE_IMAGE_INFO image1 = new FACE_IMAGE_INFO();
+			image1.height = i1.getHeight();
+			image1.width = i1.getWidth();
+			logger.info("step3:convert image into BGR:");
+			long bBgrTime = System.currentTimeMillis();
+			image1.data = ConvertBGR.getMatrixBGR(i1);
+			FACE_IMAGE_INFO image2 = new FACE_IMAGE_INFO();
+			image2.height = i2.getHeight();
+			image2.width = i2.getWidth();
+			image2.data = ConvertBGR.getMatrixBGR(i2);
+			long eBgrTime = System.currentTimeMillis();
+			logger.info("step3 costs [" + (eBgrTime - bBgrTime) + "]ms");
+			FACE_IMAGE2_DATA face_image2_data = new FACE_IMAGE2_DATA();
+			face_image2_data.job_id = jobId;
+			face_image2_data.image_info_first = image1;
+			face_image2_data.image_info_second = image2;
+			CompareController.face_image2_data = face_image2_data;
+			} 
+
+			catch (IOException e) {
+				e.printStackTrace();
+			}
+			return "success";
 	}
+	
+	/**
+     * base64字符串转文件
+     * @param base64
+     * @return
+     */
+	public static InputStream BaseToInputStream(String base64string){  
+	    ByteArrayInputStream stream = null;	
+	    BASE64Decoder decoder = new BASE64Decoder(); 
+	    byte[] bytes1 = null;
+		try {
+			bytes1 = decoder.decodeBuffer(base64string);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}  
+	    stream = new ByteArrayInputStream(bytes1);  
+	    return stream;  
+	} 
 }

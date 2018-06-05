@@ -1,4 +1,3 @@
-<%@page import="com.routon.pmax.common.decorator.PageCheckboxDecorator"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net" %>
 <%@ include file="/WEB-INF/views/head_n.jsp" %>
